@@ -15,7 +15,13 @@ var quiz = [{
 
 $(function() {
     console.log("hello");
+    $('.question').append("<h1>" + quiz[0].question + "</h1>");
 });
+
+
+
+
+
 // Make an array
 //Should have objects within the array
 // The objects should contain of the questions, multiple choices, actual answer

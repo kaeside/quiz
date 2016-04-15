@@ -15,7 +15,7 @@ var quiz = [{
 
 $(function() {
     console.log("hello");
-    $('.question').append("<h1>" + quiz[0].question + "</h1>");
+    $('.question').append("<h2>" + quiz[0].question + "</h2>");
 });
 
 

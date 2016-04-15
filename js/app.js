@@ -40,8 +40,15 @@ $(function() {
             alert('done');
         }
     });
-    $(".allChoices").click(function(){
-        alert(choices);
+    $(".allChoices").on("click", "p", function(){
+        var userAnswer = $(this).text();
+        var correctAnswerIndex = quiz[currentQuestionIndex].answer;
+        var correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
+        if (userAnswer === correctAnswer) {
+          alert("YOU GOT IT!");
+        } else {
+            alert("WRONG!");
+          }
     });
 
 });

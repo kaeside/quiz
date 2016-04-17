@@ -38,7 +38,7 @@ $(function() {
             $('#nextButton').hide();
             alert('done');
             // show user results
-            $('results').click(function(){
+            $('results').click(function() {
 
             });
         }
@@ -47,23 +47,23 @@ $(function() {
             buildQuestion(currentQuestionIndex);
         }
     });
-    $(".allChoices").on("click", "p", function(){
+    $(".allChoices").on("click", "p", function() {
         var userAnswer = $(this).text();
         console.log(userAnswer);
         var correctAnswerIndex = quiz[currentQuestionIndex].answer;
         var correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
-console.log(correctAnswer);
+        console.log(correctAnswer);
 
-// when user click on the right answer color: green else red.
+        // when user click on the right answer color: green else red.
         if (userAnswer === correctAnswer) {
-            $('p').css ('background-color', 'green');
+            $(this).css('background-color', 'green');
         } else {
-            $('p').css ('background-color', '#fb4a68');
+            $(this).css('background-color', '#fb4a68');
         }
     });
 
 
-    $('#newGameButton').click(function(){
+    $('#newGameButton').click(function() {
         console.log('yes start again');
 
 

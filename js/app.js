@@ -3,21 +3,38 @@ var currentQuestionIndex = 0;
 
 var quiz = [{
     question: "What team plays in New York?",
-    choices: ["knicks", "Lakers", "Bulls"],
+    choices: ["Knicks", "Lakers", "Bulls"],
     answer: 0
 }, {
-    question: "What teams play in Charlotte?",
+    question: "What team plays in Charlotte?",
     choices: ["Pelicans", "Hornets", "Bobcats"],
     answer: 1
 }, {
-    question: "What teams play in Oakland?",
-    choices: ["knicks", "Warriors", "Pistons"],
+    question: "What team plays in Oakland?",
+    choices: ["Knicks", "Warriors", "Pistons"],
     answer: 1
 }, {
-    question: "What teams play in Phoenix?",
+    question: "What team plays in Phoenix?",
     choices: ["Thunder", "Spurs", "Suns"],
     answer: 2
+}, {
+    question: "What team plays in Milwaukee?",
+    choices: ["Bucks", "Hawks", "Nuggets"],
+    answer: 0
 }];
+
+/*  score = "#score"
+    if (userAnswer === correctAnswer) {
+    score + 100;
+} else {
+    score = score;
+}
+ after clicking on seeing results button
+  function() {
+    $("section").hide();
+    $("scoreSection").show();
+  }
+*/
 
 function buildQuestion(num) {
     $('.question').text(quiz[num].question);
@@ -28,15 +45,13 @@ function buildQuestion(num) {
 }
 
 $(function() {
-    console.log("hello");
-
     buildQuestion(currentQuestionIndex);
     $('#nextButton').click(function() {
         $(".allChoices").empty();
         currentQuestionIndex++;
-        if (currentQuestionIndex === 4) {
+        if (currentQuestionIndex === 5) {
             $('#nextButton').hide();
-            alert('done');
+            $(".question").hide();
             // show user results
             $('results').click(function() {
 

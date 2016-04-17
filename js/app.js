@@ -22,6 +22,11 @@ var quiz = [{
     choices: ["Bucks", "Hawks", "Nuggets"],
     answer: 0
 }];
+var xyz = "Test Score!";
+var totalScore = [{
+    scoreHeader: "Thanks for playing! Let's see how many buckets you've drained!",
+    scores: xyz
+}];
 
 /*  score = "#score"
     if (userAnswer === correctAnswer) {
@@ -45,16 +50,24 @@ function buildQuestion(num) {
 }
 
 $(function() {
+    //Building Questions from Object Array
     buildQuestion(currentQuestionIndex);
     $('#nextButton').click(function() {
         $(".allChoices").empty();
         currentQuestionIndex++;
+
+        if (currentQuestionIndex !== 5 || currentQuestionIndex === 0) {
+            $("#results").hide();
+        } else {
+            $("#results").show();
+        };
+
         if (currentQuestionIndex === 5) {
             $('#nextButton').hide();
-            $(".question").hide();
+            $(".question").empty();
             // show user results
-            $('results').click(function() {
-
+            $('#results').click(function() {
+                $(".scoreHeader").text("hello!");
             });
         }
         // start a new game

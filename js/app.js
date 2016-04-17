@@ -46,21 +46,23 @@ function buildQuestion(num) {
     for (var i = 0; i < quiz[num].choices.length; i++) {
         $('.allChoices').append("<p>" + quiz[num].choices[i] + "</p>");
     }
+}
 
+function showResults() {
+    if (currentQuestionIndex === 5) {
+        $('#results').removeAttr("hidden");
+    }
 }
 
 $(function() {
+
     //Building Questions from Object Array
     buildQuestion(currentQuestionIndex);
     $('#nextButton').click(function() {
         $(".allChoices").empty();
         currentQuestionIndex++;
+        showResults();
 
-        if (currentQuestionIndex !== 5 || currentQuestionIndex === 0) {
-            $("#results").hide();
-        } else {
-            $("#results").show();
-        };
 
         if (currentQuestionIndex === 5) {
             $('#nextButton').hide();

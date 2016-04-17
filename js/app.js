@@ -1,32 +1,31 @@
 // Globar variables
-var currentQuestionIndex = 0;
-
-var quiz = [{
-    question: "What team plays in New York?",
-    choices: ["Knicks", "Lakers", "Bulls"],
-    answer: 0
-}, {
-    question: "What team plays in Charlotte?",
-    choices: ["Pelicans", "Hornets", "Bobcats"],
-    answer: 1
-}, {
-    question: "What team plays in Oakland?",
-    choices: ["Knicks", "Warriors", "Pistons"],
-    answer: 1
-}, {
-    question: "What team plays in Phoenix?",
-    choices: ["Thunder", "Spurs", "Suns"],
-    answer: 2
-}, {
-    question: "What team plays in Milwaukee?",
-    choices: ["Bucks", "Hawks", "Nuggets"],
-    answer: 0
-}];
-var xyz = "Test Score!";
-var totalScore = [{
-    scoreHeader: "Thanks for playing! Let's see how many buckets you've drained!",
-    scores: xyz
-}];
+var currentQuestionIndex = 0,
+    quiz = [{
+        question: "What team plays in New York?",
+        choices: ["Knicks", "Lakers", "Bulls"],
+        answer: 0
+    }, {
+        question: "What team plays in Charlotte?",
+        choices: ["Pelicans", "Hornets", "Bobcats"],
+        answer: 1
+    }, {
+        question: "What team plays in Oakland?",
+        choices: ["Knicks", "Warriors", "Pistons"],
+        answer: 1
+    }, {
+        question: "What team plays in Phoenix?",
+        choices: ["Thunder", "Spurs", "Suns"],
+        answer: 2
+    }, {
+        question: "What team plays in Milwaukee?",
+        choices: ["Bucks", "Hawks", "Nuggets"],
+        answer: 0
+    }],
+    totalScore = [{
+        scoreHeader: "Thanks for playing! Let's see how many buckets you've drained!",
+        scores: xyz
+    }],
+    xyz = "Test Score!";
 
 /*  score = "#score"
     if (userAnswer === correctAnswer) {
@@ -78,10 +77,9 @@ $(function() {
         }
     });
     $(".allChoices").on("click", "p", function() {
-        var userAnswer = $(this).text();
-        console.log(userAnswer);
-        var correctAnswerIndex = quiz[currentQuestionIndex].answer;
-        var correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
+        var userAnswer = $(this).text(),
+            correctAnswerIndex = quiz[currentQuestionIndex].answer,
+            correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
         console.log(correctAnswer);
 
         // when user click on the right answer color: green else red.

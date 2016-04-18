@@ -41,7 +41,7 @@ var currentQuestionIndex = 0,
 */
 
 function buildQuestion(num) {
-    $('.question').text(quiz[num].question);
+    $('.question--header').text(quiz[num].question);
     for (var i = 0; i < quiz[num].choices.length; i++) {
         $('.allChoices').append("<p>" + quiz[num].choices[i] + "</p>");
     }
@@ -49,7 +49,7 @@ function buildQuestion(num) {
 
 function showResults() {
     if (currentQuestionIndex === 5) {
-        $('#results').removeAttr("hidden");
+        $('#results--button').removeAttr("hidden");
     }
 }
 
@@ -57,18 +57,17 @@ $(function() {
 
     //Building Questions from Object Array
     buildQuestion(currentQuestionIndex);
-    $('#nextButton').click(function() {
+    $('#quizButtons--next').click(function() {
         $(".allChoices").empty();
         currentQuestionIndex++;
         showResults();
-
-
         if (currentQuestionIndex === 5) {
-            $('#nextButton').hide();
+            $('#quizButtons--next').hide();
             $(".question").empty();
             // show user results
-            $('#results').click(function() {
+            $('#results--button').click(function() {
                 $(".scoreHeader").text("hello!");
+                $(".scores").text("test!");
             });
         }
         // start a new game
@@ -90,11 +89,8 @@ $(function() {
         }
     });
 
-
-    $('#newGameButton').click(function() {
+    $('#quizButtons-newGame').click(function() {
         console.log('yes start again');
-
-
     });
 
 });

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Quiz App</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 <body>
@@ -12,27 +14,31 @@
         <h1>NBA Team Quiz</h1>
     </header>
 
-    <section>
-        <h2 class="question"></h2>
-        <h2 class="scoreHeader"></h2>
+    <section class="question">
+        <h2 class="question--header"></h2>
         <div class="allChoices">
-            <div class="scores">
-                <!--
-          				<p class="choice">Pelicans</p>
-          				<p class="choice">Bobcats</p>
-          				<p class="choice">Honets</p>
-          				<p class="choice">Bullets</p>
-          			-->
-            </div>
+            <!--
+              				<p class="choice">Pelicans</p>
+              				<p class="choice">Bobcats</p>
+              				<p class="choice">Honets</p>
+              				<p class="choice">Bullets</p>
+              			-->
+        </div>
+    </section>
+
+    <section class="results">
+        <h2 class="results--header">Thanks for playing! Let's see how you shot from the field1</h2>
+        <div class="results--scores">
+            <!-- scores  -->
+            <!-- scores  -->
+            <!-- scores  -->
         </div>
     </section>
     <!-- -->
     <div class="quizButtons">
-        <button id="nextButton">Next</button>
-        <a href="index.html">
-            <button id="newGameButton">New Game</button>
-        </a>
-        <button id="results" hidden>See Your Results!</button>
+        <button id="quizButtons--next">Next</button>
+        <a href="index.html"><button id="quizButtons-newGame">New Game</button></a>
+        <button id="results--button" hidden>See Your Field Goal Percentage!</button>
     </div>
     <!--  <div>
       <h3 id="score">0</h3>

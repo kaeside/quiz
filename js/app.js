@@ -21,11 +21,7 @@ var currentQuestionIndex = 0,
         choices: ["Bucks", "Hawks", "Nuggets"],
         answer: 0
     }],
-    totalScore = [{
-        scoreHeader: "Thanks for playing! Let's see how many buckets you've drained!",
-        scores: xyz
-    }],
-    xyz = "Test Score!";
+    userScore = 0;
 
 /*  score = "#score"
     if (userAnswer === correctAnswer) {
@@ -47,7 +43,15 @@ function buildQuestion(num) {
     }
 }
 
-function showResults() {
+var showResult = $("#results--button").click(function() {
+    $(".results").removeAttr("hidden");
+    $("#quizButtons--newGame").show();
+    if (userAnswer === correctAnswer) {
+        $(".results--scores").text(100);
+    }
+});
+
+function showResultsButton() {
     if (currentQuestionIndex === 5) {
         $('#results--button').removeAttr("hidden");
     }
@@ -60,15 +64,13 @@ $(function() {
     $('#quizButtons--next').click(function() {
         $(".allChoices").empty();
         currentQuestionIndex++;
-        showResults();
+        showResultsButton();
         if (currentQuestionIndex === 5) {
             $('#quizButtons--next').hide();
+            $('#quizButtons--newGame').hide();
             $(".question").empty();
+            $(".allChoices").text("<p>End of Regulation!</p>");
             // show user results
-            $('#results--button').click(function() {
-                $(".scoreHeader").text("hello!");
-                $(".scores").text("test!");
-            });
         }
         // start a new game
         else {
@@ -82,23 +84,11 @@ $(function() {
         console.log(correctAnswer);
 
         // when user click on the right answer color: green else red.
-        if (userAnswer === correctAnswer) {
-            $(this).css('background-color', 'green');
+        /* if (userAnswer === correctAnswer) {
+            $('.allChoices').append("<p>" + userScore + 100 + "</p>");
         } else {
             $(this).css('background-color', '#fb4a68');
-        }
-    });
-
-    $('#quizButtons-newGame').click(function() {
-        console.log('yes start again');
+        } */
     });
 
 });
-
-
-
-// make an array newGame that allow user to start a new game
-
-// Make an array
-//Should have objects within the array
-// The objects should contain of the questions, multiple choices, actual answer

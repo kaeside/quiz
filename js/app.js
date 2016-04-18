@@ -47,7 +47,7 @@ var showResult = $("#results--button").click(function() {
     $(".results").removeAttr("hidden");
     $("#quizButtons--newGame").show();
     if (userAnswer === correctAnswer) {
-        $(".results--scores").text(100);
+        $(this).css('background-color', 'green');
     }
 });
 
@@ -56,34 +56,45 @@ function showResultsButton() {
         $('#results--button').removeAttr("hidden");
     }
 }
+// Storing function that advances questions
+buildQuestion(currentQuestionIndex);
+
+function nextQuestion() {
+    $(".allChoices").empty();
+    currentQuestionIndex++;
+    showResultsButton();
+    if (currentQuestionIndex === 5) {
+        $('#quizButtons--next').hide();
+        $('#quizButtons--newGame').hide();
+        $(".question").empty();
+        $(".allChoices").text("<p>End of Regulation!</p>");
+        // show user results
+    }
+    // start a new game
+    else {
+        buildQuestion(currentQuestionIndex);
+    }
+}
+
+// FUNCTIONS THAT LOAD WHEN PAGE LOADS
 
 $(function() {
 
     //Building Questions from Object Array
-    buildQuestion(currentQuestionIndex);
     $('#quizButtons--next').click(function() {
-        $(".allChoices").empty();
-        currentQuestionIndex++;
-        showResultsButton();
-        if (currentQuestionIndex === 5) {
-            $('#quizButtons--next').hide();
-            $('#quizButtons--newGame').hide();
-            $(".question").empty();
-            $(".allChoices").text("<p>End of Regulation!</p>");
-            // show user results
-        }
-        // start a new game
-        else {
-            buildQuestion(currentQuestionIndex);
-        }
+        nextQuestion();
     });
-    $(".allChoices").on("click", "p", function() {
+    $(".allChoices").on("click", "p", function(event) {
         var userAnswer = $(this).text(),
             correctAnswerIndex = quiz[currentQuestionIndex].answer,
             correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
-        console.log(correctAnswer);
+        console.log(userAnswer);
+        if (userAnswer === correctAnswer) {
+            userScore += 100;
+        } else {
+            userScore = userScore;
+        }
 
-        // when user click on the right answer color: green else red.
         /* if (userAnswer === correctAnswer) {
             $('.allChoices').append("<p>" + userScore + 100 + "</p>");
         } else {

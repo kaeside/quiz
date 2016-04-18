@@ -6,7 +6,7 @@
     <title>Quiz App</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 <body>
@@ -25,6 +25,15 @@
               			-->
         </div>
     </section>
+    <section class="resultsSplashPage" hidden>
+        <h2>Thanks for playing!</h2>
+        <h3>Click the button below to see how you shot from the field!</h3>
+        <div class="resultsSplashPage--scores">
+            <!-- scores  -->
+            <!-- scores  -->
+            <!-- scores  -->
+        </div>
+    </section>
 
     <section class="results" hidden>
         <h2>Thanks for playing!</h2>
@@ -38,7 +47,9 @@
     <!-- -->
     <section class="quizButtons">
         <button id="quizButtons--next">Next</button>
-        <a href="index.html"><button id="quizButtons--newGame">New Game</button></a>
+        <a href="index.html">
+            <button id="quizButtons--newGame">New Game</button>
+        </a>
         <button id="results--button" hidden>See Your Field Goal Percentage!</button>
     </section>
 

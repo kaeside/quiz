@@ -49,6 +49,7 @@ var showResult = $("#results--button").click(function() {
     if (userAnswer === correctAnswer) {
         $(this).css('background-color', 'green');
     }
+    $(".results--scores").html('<h1>' + userScore + '</h1>');
 });
 
 function showResultsButton() {
@@ -88,18 +89,14 @@ $(function() {
         var userAnswer = $(this).text(),
             correctAnswerIndex = quiz[currentQuestionIndex].answer,
             correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
-        console.log(userAnswer);
         if (userAnswer === correctAnswer) {
+            // console.log('Correct Answer: %s', correctAnswer);
             userScore += 100;
         } else {
+            // console.log('Incorrect Selection: %s', userAnswer);
             userScore = userScore;
         }
-
-        /* if (userAnswer === correctAnswer) {
-            $('.allChoices').append("<p>" + userScore + 100 + "</p>");
-        } else {
-            $(this).css('background-color', '#fb4a68');
-        } */
+        nextQuestion();
     });
 
 });

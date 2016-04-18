@@ -21,24 +21,7 @@ var currentQuestionIndex = 0,
         choices: ["Bucks", "Hawks", "Nuggets"],
         answer: 0
     }],
-    totalScore = [{
-        scoreHeader: "Thanks for playing! Let's see how many buckets you've drained!",
-        scores: xyz
-    }],
-    xyz = "Test Score!";
-
-/*  score = "#score"
-    if (userAnswer === correctAnswer) {
-    score + 100;
-} else {
-    score = score;
-}
- after clicking on seeing results button
-  function() {
-    $("section").hide();
-    $("scoreSection").show();
-  }
-*/
+    totalScore = 0;
 
 function buildQuestion(num) {
     $('.question').text(quiz[num].question);
@@ -52,29 +35,30 @@ function showResults() {
         $('#results').removeAttr("hidden");
     }
 }
+function nextQuestion() {
+    $(".allChoices").empty();
+    currentQuestionIndex++;
+    showResults();
+    if (currentQuestionIndex === 5) {
+        $('#nextButton').hide();
+        $(".question").empty();
+        // show user results
+        $('#results').click(function() {
+            $(".scoreHeader").text("Your Score is - " + totalScore);
+        });
+    }
+    // start a new game
+    else {
+        buildQuestion(currentQuestionIndex);
+    }
+}
 
 $(function() {
 
     //Building Questions from Object Array
     buildQuestion(currentQuestionIndex);
     $('#nextButton').click(function() {
-        $(".allChoices").empty();
-        currentQuestionIndex++;
-        showResults();
-
-
-        if (currentQuestionIndex === 5) {
-            $('#nextButton').hide();
-            $(".question").empty();
-            // show user results
-            $('#results').click(function() {
-                $(".scoreHeader").text("hello!");
-            });
-        }
-        // start a new game
-        else {
-            buildQuestion(currentQuestionIndex);
-        }
+        nextQuestion();
     });
     $(".allChoices").on("click", "p", function() {
         var userAnswer = $(this).text(),
@@ -85,9 +69,13 @@ $(function() {
         // when user click on the right answer color: green else red.
         if (userAnswer === correctAnswer) {
             $(this).css('background-color', 'green');
+            totalScore += 20;
         } else {
             $(this).css('background-color', '#fb4a68');
+
         }
+        console.log(totalScore , 'score');
+        nextQuestion();
     });
 
 
@@ -98,11 +86,3 @@ $(function() {
     });
 
 });
-
-
-
-// make an array newGame that allow user to start a new game
-
-// Make an array
-//Should have objects within the array
-// The objects should contain of the questions, multiple choices, actual answer

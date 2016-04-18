@@ -1,4 +1,4 @@
-// Globar variables
+// Global variables
 var currentQuestionIndex = 0,
     quiz = [{
         question: "What team plays in New York?",

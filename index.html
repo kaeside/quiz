@@ -3,54 +3,56 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Quiz App</title>
+    <title>NBA Team Quiz</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
+    <!-- <header>
         <h1>NBA Team Quiz</h1>
-    </header>
+    </header> -->
+    <section class="quizContent">
+        <h1>NBA Team Quiz</h1>
+        <section class="question">
+            <h3 class="question--header"></h3>
+            <div class="allChoices">
+                <!--
+                  				<p class="choice">Pelicans</p>
+                  				<p class="choice">Bobcats</p>
+                  				<p class="choice">Honets</p>
+                  				<p class="choice">Bullets</p>
+                  			-->
+            </div>
+        </section>
+        <section class="resultsSplashPage" hidden>
+            <h2>Thanks for playing!</h2>
+            <h4>Click the button below to see how you shot from the field!</h4>
+            <div class="resultsSplashPage--scores">
+                <!-- scores  -->
+                <!-- scores  -->
+                <!-- scores  -->
+            </div>
+        </section>
 
-    <section class="question">
-        <h2 class="question--header"></h2>
-        <div class="allChoices">
-            <!--
-              				<p class="choice">Pelicans</p>
-              				<p class="choice">Bobcats</p>
-              				<p class="choice">Honets</p>
-              				<p class="choice">Bullets</p>
-              			-->
-        </div>
-    </section>
-    <section class="resultsSplashPage" hidden>
-        <h2>Thanks for playing!</h2>
-        <h3>Click the button below to see how you shot from the field!</h3>
-        <div class="resultsSplashPage--scores">
-            <!-- scores  -->
-            <!-- scores  -->
-            <!-- scores  -->
-        </div>
-    </section>
-
-    <section class="results" hidden>
-        <h2>Thanks for playing!</h2>
-        <h3>Let's see how you shot from the field!</h3>
-        <div class="results--scores">
-            <!-- scores  -->
-            <!-- scores  -->
-            <!-- scores  -->
-        </div>
-    </section>
-    <!-- -->
-    <section class="quizButtons">
-        <button id="quizButtons--next">Next</button>
-        <!-- <a href="index.html"> -->
-            <button id="quizButtons--newGame">New Game</button>
-        <!-- </a> -->
-        <button id="results--button" hidden>See Your Field Goal Percentage!</button>
+        <section class="results" hidden>
+            <h2>Thanks for playing!</h2>
+            <h4>Let's see how you shot from the field!</h4>
+            <div class="results--scores">
+                <!-- scores  -->
+                <!-- scores  -->
+                <!-- scores  -->
+            </div>
+        </section>
+        <!-- -->
+        <section class="quizButtons">
+            <button id="quizButtons--next" type="button" class="btn btn-primary">Next</button>
+            <!-- <a href="index.html"> -->
+                <button id="quizButtons--newGame"type="button" class="btn btn-danger">New Game</button>
+            <!-- </a> -->
+            <button id="results--button" hidden>See Your Field Goal Percentage!</button>
+        </section>
     </section>
 
     <!--  <div>

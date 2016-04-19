@@ -1,0 +1,25 @@
+body {
+    background-image: url("http://www.hdwallpapersnews.com/wp-content/uploads/2015/03/Basketball-High-Resolution-Wallpapers.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header,
+.question,
+.resultsSplashPage,
+.results,
+.quizButtons
+ {
+    text-align: center;
+}
+
+.quizContent {
+    background-color: white;
+    text-align: center;
+    margin: 20em auto;
+    padding: 1em;
+    width: 33%;
+    border: solid black .3em;
+    border-radius: 1em;
+}
+
+/*MEDIA QUERIES*/

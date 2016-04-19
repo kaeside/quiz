@@ -1,8 +1,8 @@
 // Globar variables
 var currentQuestionIndex = 0;
 var quiz = [{
-    question: "What team plays in New York?",
-    choices: ["Knicks", "Lakers", "Bulls"],
+    question: "How many teams have never won an NBA Championship?",
+    choices: ["13", "14", "15"],
     answer: 0
 }, {
     question: "What team plays in Charlotte?",
@@ -10,15 +10,15 @@ var quiz = [{
     answer: 1
 }, {
     question: "What team plays in Oakland?",
-    choices: ["Knicks", "Warriors", "Pistons"],
+    choices: ["Kings", "Warriors", "Pistons"],
     answer: 1
 }, {
-    question: "What team plays in Phoenix?",
-    choices: ["Thunder", "Spurs", "Suns"],
+    question: "What team used to be caleld the Seattle SuperSonics?",
+    choices: ["New Orleans Pelicans", "Washington Wizards", "Oklahoma City Thunder"],
     answer: 2
 }, {
-    question: "What team plays in Milwaukee?",
-    choices: ["Bucks", "Hawks", "Nuggets"],
+    question: "What team used to be called the Buffalo Braves?",
+    choices: ["Los Angeles Clippers", "Philadelphia 76ers", "Denver Nuggets"],
     answer: 0
 }];
 var userScore = 0;
@@ -47,7 +47,7 @@ function showResult() {
     $("#results--button").click(function() {
         $(".results").removeAttr("hidden");
         $("#quizButtons--newGame").show();
-        $(".results--scores").html('<h1>' + userScore + '</h1>');
+        $(".results--scores").html('<h1>' + userScore + ' Out of 500 Points!</h1>');
     });
 }
 
@@ -81,7 +81,7 @@ $(function() {
     // Storing function that advances questions
     buildQuestion(currentQuestionIndex);
     $(".quizButtons").click("#quizButtons--newGame", function() {
-        
+
     });
 
     //Building Questions from Object Array
@@ -96,7 +96,7 @@ $(function() {
         if (userAnswer !== undefined) {
             nextQuestion();
         } else {
-            alert("Come on man, don't get dunked on without responding!");
+            alert("Come on man, shoot your shot. Answer the question.");
         }
     });
     //$(".allChoices").on("click", "p", function(event) {

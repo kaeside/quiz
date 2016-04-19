@@ -1,27 +1,27 @@
 // Globar variables
-var currentQuestionIndex = 0,
-    quiz = [{
-        question: "What team plays in New York?",
-        choices: ["Knicks", "Lakers", "Bulls"],
-        answer: 0
-    }, {
-        question: "What team plays in Charlotte?",
-        choices: ["Pelicans", "Hornets", "Bobcats"],
-        answer: 1
-    }, {
-        question: "What team plays in Oakland?",
-        choices: ["Knicks", "Warriors", "Pistons"],
-        answer: 1
-    }, {
-        question: "What team plays in Phoenix?",
-        choices: ["Thunder", "Spurs", "Suns"],
-        answer: 2
-    }, {
-        question: "What team plays in Milwaukee?",
-        choices: ["Bucks", "Hawks", "Nuggets"],
-        answer: 0
-    }],
-    userScore = 0;
+var currentQuestionIndex = 0;
+var quiz = [{
+    question: "What team plays in New York?",
+    choices: ["Knicks", "Lakers", "Bulls"],
+    answer: 0
+}, {
+    question: "What team plays in Charlotte?",
+    choices: ["Pelicans", "Hornets", "Bobcats"],
+    answer: 1
+}, {
+    question: "What team plays in Oakland?",
+    choices: ["Knicks", "Warriors", "Pistons"],
+    answer: 1
+}, {
+    question: "What team plays in Phoenix?",
+    choices: ["Thunder", "Spurs", "Suns"],
+    answer: 2
+}, {
+    question: "What team plays in Milwaukee?",
+    choices: ["Bucks", "Hawks", "Nuggets"],
+    answer: 0
+}];
+var userScore = 0;
 
 /*  score = "#score"
     if (userAnswer === correctAnswer) {
@@ -39,32 +39,30 @@ var currentQuestionIndex = 0,
 function buildQuestion(num) {
     $('.question--header').text(quiz[num].question);
     for (var i = 0; i < quiz[num].choices.length; i++) {
-        $('.allChoices').append("<p>" + quiz[num].choices[i] + "</p>");
+        $('.allChoices').append("<input type='radio' name='choice' value='" + quiz[num].choices[i] + "'> " + quiz[num].choices[i] + "<br>");
     }
 }
 
-var showResult = $("#results--button").click(function() {
-    $(".results").removeAttr("hidden");
-    $("#quizButtons--newGame").show();
-    if (userAnswer === correctAnswer) {
-        $(this).css('background-color', 'green');
-    }
-    $(".results--scores").html('<h1>' + userScore + '</h1>');
-});
+function showResult() {
+    $("#results--button").click(function() {
+        $(".results").removeAttr("hidden");
+        $("#quizButtons--newGame").show();
+        $(".results--scores").html('<h1>' + userScore + '</h1>');
+    });
+}
 
 function showResultsButton() {
-    if (currentQuestionIndex === 5) {
+    if (currentQuestionIndex === quiz.length) {
         $('#results--button').removeAttr("hidden");
+        showResult();
     }
 }
-// Storing function that advances questions
-buildQuestion(currentQuestionIndex);
 
 function nextQuestion() {
     $(".allChoices").empty();
     currentQuestionIndex++;
     showResultsButton();
-    if (currentQuestionIndex === 5) {
+    if (currentQuestionIndex === quiz.length) {
         $('#quizButtons--next').hide();
         $('#quizButtons--newGame').hide();
         $(".question").empty();
@@ -80,23 +78,38 @@ function nextQuestion() {
 // FUNCTIONS THAT LOAD WHEN PAGE LOADS
 
 $(function() {
+    // Storing function that advances questions
+    buildQuestion(currentQuestionIndex);
+    $(".quizButtons").click("#quizButtons--newGame", function() {
+        
+    });
 
     //Building Questions from Object Array
     $('#quizButtons--next').click(function() {
-        nextQuestion();
-    });
-    $(".allChoices").on("click", "p", function(event) {
-        var userAnswer = $(this).text(),
-            correctAnswerIndex = quiz[currentQuestionIndex].answer,
-            correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
+        var userAnswer = $("input:checked").val();
+        var correctAnswerIndex = quiz[currentQuestionIndex].answer;
+        var correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
         if (userAnswer === correctAnswer) {
-            // console.log('Correct Answer: %s', correctAnswer);
+            // console.log(userAnswer);
             userScore += 100;
-        } else {
-            // console.log('Incorrect Selection: %s', userAnswer);
-            userScore = userScore;
         }
-        nextQuestion();
+        if (userAnswer !== undefined) {
+            nextQuestion();
+        } else {
+            alert("Come on man, don't get dunked on without responding!");
+        }
     });
+    //$(".allChoices").on("click", "p", function(event) {
+    // var userAnswer = $(this).val();
+    // console.log(userAnswer);
+    // var correctAnswerIndex = quiz[currentQuestionIndex].answer;
+    // var correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
+    // if (userAnswer === correctAnswer) {
+    //     // console.log('Correct Answer: %s', correctAnswer);
+    //     userScore += 100;
+    // }
+    // console.log(userScore);
+    //nextQuestion();
+    //});
 
 });
